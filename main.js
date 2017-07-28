@@ -53,16 +53,15 @@ function question4 () {
 //    Display the name, number of items and the items it is made of.
 function question5 () {
   // Answer:
-  let array = []
-  let titleName = []
   for (var i = 0; i < data.length; i++) {
-    if (data[i].materials.length > 8) {
-       array.push(data[i].materials);
-       titleName.push(data[i].title);
+    if (data[i].materials.length >= 8) {
+      console.log(data[i].title + "has " + data[i].materials.length + " materials:");
+      for (var j = 0; j < data[i].materials.length; j++) {
+        console.log("- " + data[i].materials[j]);
+      }
     }
-    // console.log(titleName);
-      console.log(titleName + "has " + array.length + " materials:" + array);
   }
+
 }
 
 
