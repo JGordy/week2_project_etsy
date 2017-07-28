@@ -22,53 +22,47 @@ console.log("The average price is $" + Math.round(avg * 100) / 100);
 // 2: Show me how to get an array of items that cost between $14.00 and $18.00 USD
 function question2 () {
   // Answer:
-  let titleList = [];
   for (i = 0; i < data.length; i++) {
     if (data[i].price >= 14.00 && data[i].price <= 18.00) {
-    titleList.push( data[i].title);
+      console.log( data[i].title);
     }
   }
-  console.log(titleList);
 }
 
 // 3: Which item has a "GBP" currency code? Display it's name and price.
 function question3 () {
   // Answer:
-  let GBPitems = [];
   for ( let i = 0; i < data.length; i++) {
     if ( data[i].currency_code === "GBP") {
-      GBPitems.push(data[i].title, data[i].price)
+      console.log(data[i].title + " costs " + data[i].price + " pounds.");
     }
   }
-  console.log(GBPitems[0] + " costs " + GBPitems[1] + " pounds.");
 }
-
-console.log();
 // 4: Display a list of all items who are made of wood.
 function question4 () {
   // Answer:
-  let woodenItems = [];
-  for (var i = 0; i < data[i].length; i++) {
-    if (data[i].materials === "wood") {
-      woodenItems.push(data[i].title);
+  for (let i = 0; i < data.length; i++) {
+    for (let j = 0; j < data[i].materials.length; j++) {
+      if (data[i].materials[j] === "wood") {
+        console.log(data[i].title);
+      }
     }
   }
-  console.log(woodenItems);
 }
 // 5: Which items are made of eight or more materials?
 //    Display the name, number of items and the items it is made of.
 function question5 () {
   // Answer:
-  let eightMaterials = []
-  for (var i = 0; i < data[i].length; i++) {
-    if (data[i].materials) {
-
+  let array = []
+  let titleName = []
+  for (var i = 0; i < data.length; i++) {
+    if (data[i].materials.length > 8) {
+       array.push(data[i].materials);
+       titleName.push(data[i].title);
     }
+    // console.log(titleName);
+      console.log(titleName + "has " + array.length + " materials:" + array);
   }
-
-
-
-  console.log(eightMaterials);
 }
 
 
@@ -76,8 +70,11 @@ function question5 () {
 // Answer:
 function question6 () {
   // Answer:
-
-
-
-  console.log();
+  let selfMade = []
+  for (var i = 0; i < data.length; i++) {
+    if (data[i].who_made === "i_did") {
+      selfMade.push(data[i].title);
+    }
+  }
+  console.log(selfMade.length + " were made by thier sellers.");
 }
